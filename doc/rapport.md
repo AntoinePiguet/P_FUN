@@ -11,10 +11,11 @@ __features__ :
     - resynchronisation: call a l'API pour avoir toutes les transactions depuis la denière passée dans la db.
 - stockage des données: je vais utiliser une base de donnée SQL car le relationnel est bien dans ce cas de figure surtout si je veux pouvoir analyser les données d'une entreprise sur une période précise. 
     - Hélas pas de "temps réel" avec __SQL__ mais applicable avec __SignalR__ pour push les nouvelles données de l'API vers l'UI.
+- UI: graphiques etc fait avec Forms, graphiques prenant les data de quand on demande le graphique et ne se met pas a jour automatiquement, bouton refresh disponible.
 
 __Matériel__ : 
 - Backend : C#
-- Frontend : XAML
+- Frontend : WinForms
 - API: Finnhub
 - DB: SQL
 - Temps réel: SignalR
