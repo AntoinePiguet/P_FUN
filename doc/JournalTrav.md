@@ -25,3 +25,36 @@ _________________________
 *action :* 
 - remplissage du journal de travail en utilisant le markdown et des conventions pour obtenir un document structuré
 - commit push du journal sur git
+
+_________________________
+
+__05.09.25__
+
+*temps :* 30min
+
+*action :* 
+- création d'une vm Debian sur AWS
+- installation de micro + dotnet + git
+- installation de VeraCrypt 
+- essai avec M. Carrel de VeraCrypt pour crypter un volume contenant mes fichiers de clés privées.
+
+J'ai créé une vm debian sur AWS et installé micro ainsi que dotnet pour avoir un éditeur de code ainsi qu'un compilateur C# comme ça je pourrais coder mon projet depuis une interface linux car j'ai besoin d'apprendre ça. J'ai aussi installé VeraCrypt pour encrypter un volume contenant mes clés privées puis j'ai mis la clé encryptée de ma vm dans un nouveau repo git privé
+
+_________________________
+
+*temps :* 30min
+
+*action :* 
+j'ai créé ma planification sur excel puis je l'ai push sur git
+
+_________________________
+
+*temps :* 1h45
+
+*action :* j'ai créé bon nombre d'issues, puis de user stories, puis de tests d'acceptances sur gitProject et ensuite j'ai parlé à M. Carrel car mes stories étaient faites d'un point de vue DEV a la place d'un point de vue USER et donc il m'a bien expliqué comment les faires puis j'ai commencé à les refaires bien - pareil pour les tests d'acceptances
+
+_________________________
+
+*temps :* 15min
+
+*action :* rédaction du journal de travail, puis plusieurs commits git et enfin la release de S2.
