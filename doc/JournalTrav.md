@@ -58,3 +58,30 @@ _________________________
 *temps :* 15min
 
 *action :* rédaction du journal de travail, puis plusieurs commits git et enfin la release de S2.
+
+
+
+__12.09.25__
+
+*temps :* 30min
+
+*action :* création du mcd sur looping puis du script mySQL
+
+_________________________
+
+*temps :* 1h
+
+*action :* discussion avec m.Carrel sur mes users stories et la manière de les faire, la syntaxe ainsi que la manière de les évaluer car ce n'était pas limpide de mon côté, puis nous avons fait un schéma de ce a quoi ressemblerait mon app pour que toutes les fonctionnalités annoncées puissent être accessible.
+
+
+_________________________
+
+*temps :* 30 min
+
+*action :* j'ai refait mes user-stories après la discussion avec m. Carrel 
+
+_________________________
+
+*temps :* 45 min
+
+*action :* j'ai créé la maquette de mon app pour avoir un modèle visuel de mon app ainsi qu'un moyen supplémentaire d'évaluer mon travail en se basant sur la maquette.
