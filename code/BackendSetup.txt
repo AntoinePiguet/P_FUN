@@ -1,0 +1,1 @@
+dotnet add package Newtonsoft.Json       # Pour JSON dotnet add package Dapper                 # Pour SQL léger dotnet add package Microsoft.Data.SqlClient # Si SQL Server dotnet add package Npgsql                 # Si PostgreSQL dotnet add package Microsoft.AspNetCore.SignalR.Client # SignalR
