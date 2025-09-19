@@ -1,0 +1,79 @@
+Vagrant.configure("2") do |config|
+  # Utilisation de Debian 12 (Bookworm) officiel
+  config.vm.box = "debian/bookworm64"
+
+  # Configuration réseau
+  config.vm.network "forwarded_port", guest: 22, host: 2222
+
+  # Activer l'affichage GUI dans VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = 4096
+    vb.cpus = 2
+  end
+
+  # Provisioning shell
+  config.vm.provision "shell", inline: <<-SHELL
+    set -eux
+    export DEBIAN_FRONTEND=noninteractive
+
+    # Mettre à jour le système
+    apt-get update -y
+    apt-get upgrade -y
+
+        # Localisation : Suisse, langue en anglais, clavier suisse-français
+    apt-get install -y locales
+    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+    echo "fr_CH.UTF-8 UTF-8" >> /etc/locale.gen
+    locale-gen
+    update-locale LANG=en_US.UTF-8
+
+    # Config clavier suisse-français (non interactif)
+    echo 'keyboard-configuration keyboard-configuration/layout select Switzerland' | debconf-set-selections
+    echo 'keyboard-configuration keyboard-configuration/variant select French' | debconf-set-selections
+    apt-get install -y keyboard-configuration console-setup
+
+
+    # Installer GNOME + interface graphique + serveur SSH
+    apt-get install -y task-gnome-desktop openssh-server sudo
+
+    # Installer dépendances
+    apt-get install -y wget apt-transport-https software-properties-common \
+                       gcc micro git
+
+    # Installer GitHub CLI
+    type -p curl >/dev/null || apt-get install -y curl
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
+      dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+    chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+      https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+    apt-get update -y
+    apt-get install -y gh
+
+    # Installer .NET SDK 8
+    wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+    dpkg -i packages-microsoft-prod.deb
+    rm packages-microsoft-prod.deb
+    apt-get update -y
+    apt-get install -y dotnet-sdk-8.0
+
+    # Créer un projet test pour installer Terminal.Gui et Spectre.Console
+    mkdir -p /home/vagrant/dotnet-test
+    cd /home/vagrant/dotnet-test
+    dotnet new console -n DemoApp
+    cd DemoApp
+    dotnet add package Terminal.Gui
+    dotnet add package Spectre.Console
+    chown -R vagrant:vagrant /home/vagrant/dotnet-test
+
+    # Activer root avec mot de passe root
+    echo "root:root" | chpasswd
+    passwd -u root
+
+    # Créer l'utilisateur user1 (mot de passe = 1)
+    useradd -m -s /bin/bash user1
+    echo "user1:1" | chpasswd
+    usermod -aG sudo user1
+  SHELL
+end
