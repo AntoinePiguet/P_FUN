@@ -85,3 +85,48 @@ _________________________
 *temps :* 45 min
 
 *action :* j'ai créé la maquette de mon app pour avoir un modèle visuel de mon app ainsi qu'un moyen supplémentaire d'évaluer mon travail en se basant sur la maquette.
+
+
+_________________________
+
+__19.09.25__
+- absent
+
+_________________________
+
+__26.09.25__
+
+
+*temps :* 1h
+
+*action :* 
+ - j'ai fais des recherches sur internet pour voir si quelqu'un avait déjà fait un projet similaire au mien, afin de m'inspirer de ce travail (sans plagier)
+ - j'ai ensuite demandé à une IA de m'aider déjà simplement pour la structure de mon projet, quels fichiers j'aurais besoin pour me créer déjà l'architechture de mon projet.
+ - ensuite en regardant le code de quelqu'un qui a fait un projet utilisant aussi l'API finnhub mais qui était en python j'ai pu comprendre ce que j'allais devoir faire "techniquement" dans les grandes lignes
+
+_________________________
+
+ 
+*temps :* 30min
+
+*action :* 
+- j'ai créé un docker-compose pour avoir un container docker avec ma db.
+- j'ai aussi amélioré mon fichier de création de db.
+
+_________________________
+
+
+*temps :* 1h
+
+*action :* 
+- J'ai regardé des tutos sur Forms car je suis le seul de la classe qui n'a encore jamais utilisé cette technologie, j'ai testé quelques formes et params de base de ScottPlot
+- j'ai notamment essayé de créer un graphiques avec l'aide de l'IA (pas sur mon projet directement, juste dans un dossier de test que j'ai détruit)
+
+_________________________
+
+
+*temps :* 45min
+
+*action :* 
+- j'ai lu de la documentation sur les connections avec HttpClient, sur linQ et aussi sur comment connecter ma db qui est maintenant dans un container docker a mon app, mais sans grand succès.
+- puis j'ai cherché comment faire sur internet et j'ai trouvé que c'était car je n'avais pas créé de user à ma db et donc que j'essayais de me connecter avec root, mais c'est très déconseillé et aussi le password n'est pas "root" mais "rootpassword". En bref j'ai réglé l'erreur en modifiant mon fichier et en ajoutant un user et en me connectant avec ce User.
