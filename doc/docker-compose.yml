@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_bourse
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: db_bourse
+      MYSQL_USER: bourse_user
+      MYSQL_PASSWORD: bourse_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./Database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
