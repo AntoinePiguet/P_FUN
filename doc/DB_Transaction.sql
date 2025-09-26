@@ -1,11 +1,11 @@
-CREATE DATABASE db_bourse;
-USE DATABASE db_bourse;
+CREATE DATABASE IF NOT EXISTS db_bourse;
+USE db_bourse;
 
-CREATE TABLE transaction(
-   idTransaction INT,
-   company VARCHAR(5) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transaction` (
+   idTransaction INT AUTO_INCREMENT,
+   company VARCHAR(10) NOT NULL,
    price DECIMAL(10,2) NOT NULL,
-   direction VARCHAR(5) NOT NULL,
+   direction ENUM('BUY','SELL') NOT NULL,
    timestamp_ DATETIME NOT NULL,
    PRIMARY KEY(idTransaction)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
